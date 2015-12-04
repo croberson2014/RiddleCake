@@ -8,6 +8,8 @@
 <body> 
 <script type='text/javascript'></script>
 <h1>Riddle Cake</h1>
+
+
 <?php
 //get the context
 session.start(); 
@@ -40,12 +42,17 @@ processContext($c);
 //each context has a function and parameters that have to be met before it reverts to the default
 echo "<div id='cakecontainer1' class='cakecontainer'>"; 
 echo "<img id='cakescreen1' class='cakescreen'></img>"; 
+
 ?>
 </div>
+<div id='menu'><ul><h2></h2></ul></div>
 <script type='text/javascript'>
   //send an AJAX request to get the sequences, text, and any updates to configuration
   //the text and sequences can be combined into an object so that their display is coordinated
   //configuration updates will change the css of the page 
+  //This script runs every time the page loads and will continue to receive context updates 
+  // from indicators in the scripts/sequences 
+  
 </script>
 </body> 
 </html> 
