@@ -10,17 +10,22 @@
 <h1>Riddle Cake</h1>
 
 
-<?php
-//get the context
-session.start(); 
-
+<?php   include('engine/ncs.php');
+//get the current context from config.php, update the session variable
+session_start(); 
+//send the appropriate code to ncs.php in order to get the currentContext
+//draft 1, try this code which means, 'return the general context from configuration 
+//[Source][Destination][RequestType]
+//mycake.php -> config.php, request type is context 
+$context = request("Configuration", "mcc");
+request("Configuration", $context);
+//this is a bit weird, will need to make a flow diagram to make sense of it, as well as a list of codes
+//makes more sense to create the engines and test them before accessing them
 //get the security settings 
 //change the context when the user has logged in 
 //the cake will need to determine progress in the relationship 
 
 //actually they are context codes with very specific functionality
-$c = getContext(); 
-processContext($c); 
 //this method is not actually the name, and it may be a part of either 
 //a) the configuration, like Configuration.processContext() or 
 //b) an entirely different global
