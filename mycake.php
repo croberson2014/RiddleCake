@@ -45,14 +45,12 @@ $.post('system/engine/resolution_engine.php', 'q=getSequences', processResponse)
 
 function processResponse(data){
 	var loop = jQuery.parseJSON(data);
-	var s = 0;
-	var i = 0; 
 
 	startAnimation(sequence.frame, callout.message);
 }
 //sequence.frame[i]
 function updateCakeScreen1(photo){
-	$('#cakescreen1').attr('src', photo);
+	$('#cakescreen1').attr('src', photo[global_photo+counter]);
 	global_photo_counter++; 
 	if(global_photo_counter > 5){global_photo_counter = 0;}
 }
@@ -65,7 +63,7 @@ function startAnimation(photos, messages){
 	var s = 0; 
 	var i = 0; 
 	
-	window.setInterval(updateCakeScreen1(sequence.frame[global_photo_counter]) ,1000);
+	window.setInterval(updateCakeScreen1(sequence.frame) ,1000);
 	
 }
 
