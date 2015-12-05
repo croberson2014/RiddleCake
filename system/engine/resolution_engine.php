@@ -1,5 +1,4 @@
 <?php 
-header('Content-Type: text/xml'); 
 //this could be an information expert, should be easy to decouple of necessary
 // sentiment -> recall -> communication -> animation 
 
@@ -10,7 +9,32 @@ header('Content-Type: text/xml');
 	
 //throw a post retrieval, get the function that you want to occur based on send(content) 
 
-		echo "<?xml version=\"1.0\" ?>
+@$q = htmlspecialchars(strip_tags($_POST['q']));
+
+if($q == "getSequences"){getSequences(); }
+
+function getSequences(){
+	$arr = array('selector'=>'#updateCategory',
+					'content'=>array('id' => $product_id, 
+								'column' => $column, 
+								'value' => $value)
+				); 
+	$arr = array('sequence'=>array('frame'=> 'image/cake/defaultcake1.png',
+					'frame'=>'image/cake/defaultcake2.png',
+					'frame'=>'image/cake/defaultcake3.png',
+					'frame'=>'image/cake/defaultcake4.png',
+					'frame'=>'image/cake/defaultcake5.png'
+			), 
+			'callout'=>'message'=>array('message'=>'Is someone there?!'
+					'message'=>'Im fresh out of the oven and ready to talk about computers! I swear those concepts are related somehow...'
+					'message'=>'Its so bright in here. Please... a little darker... I have a hangover...'
+					'message'=>'Shake your pom pom, shake your pom pom, shake your pom pooooom.'
+					), 
+				
+		)
+}
+
+		/*echo "<?xml version=\"1.0\" ?>
 			<sequence>
 			<frame>image/cake/defaultcake1.png</frame> 
 			<frame>image/cake/defaultcake2.png</frame> 
@@ -36,6 +60,8 @@ header('Content-Type: text/xml');
 			</callout>
 			"; 
 
+			*/
+			
 			
 			/*
 			@$q = htmlspecialchars(strip_tags($_POST['q'])); 
