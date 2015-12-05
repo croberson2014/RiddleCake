@@ -38,6 +38,20 @@ echo "<img id='cakescreen1' class='cakescreen' src='image/cake/designcake.png'><
 ?>
 <div id='menu'><ul><h2></h2></ul></div>
 <script type='text/javascript'>
+$.post('system/engine/resolution_engine.php', 'q=getSequences', processResponse); 
+
+function processResponse(data){
+	var loop = jQuery.parseJSON(data);
+	var s = 0;
+	var i = 0; 
+	while(s != -1){
+		window.setTimeout(updateCakeScreen1(data.sequences.));
+	}
+}
+
+function updateCakeScreen1(photo){
+	$('#cakescreen1').attr('src', photo);
+}
 
  
  
