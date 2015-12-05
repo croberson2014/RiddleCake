@@ -14,24 +14,27 @@
 if($q == "getSequences"){getSequences(); }
 
 function getSequences(){
-	$arr = array('selector'=>'#updateCategory',
-					'content'=>array('id' => $product_id, 
-								'column' => $column, 
-								'value' => $value)
-				); 
+	
 	$arr = array('sequence'=>array('frame'=> 'image/cake/defaultcake1.png',
 					'frame'=>'image/cake/defaultcake2.png',
 					'frame'=>'image/cake/defaultcake3.png',
 					'frame'=>'image/cake/defaultcake4.png',
 					'frame'=>'image/cake/defaultcake5.png'
 			), 
-			'callout'=>'message'=>array('message'=>'Is someone there?!'
-					'message'=>'Im fresh out of the oven and ready to talk about computers! I swear those concepts are related somehow...'
-					'message'=>'Its so bright in here. Please... a little darker... I have a hangover...'
-					'message'=>'Shake your pom pom, shake your pom pom, shake your pom pooooom.'
+			'callout'=>'message'=>array('text'=>'Is someone there?!'
+					'text'=>'Im fresh out of the oven and ready to talk about computers! I swear those concepts are related somehow...'
+					'text'=>'Its so bright in here. Please... a little darker... I have a hangover...'
+					'text'=>'Shake your pom pom, shake your pom pom, shake your pom pooooom.'
 					), 
+				'duration'=>array('length'=>3,
+						'length'=>8, 
+						'length', 7, 
+						'length'=>6
+				)
 				
-		)
+		);
+		
+		echo json_encode($arr);
 }
 
 		/*echo "<?xml version=\"1.0\" ?>
