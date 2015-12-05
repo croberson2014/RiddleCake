@@ -38,19 +38,35 @@ echo "<img id='cakescreen1' class='cakescreen' src='image/cake/designcake.png'><
 ?>
 <div id='menu'><ul><h2></h2></ul></div>
 <script type='text/javascript'>
+
+var global_photo_counter = 0; var global_message_counter = 0; 
+
 $.post('system/engine/resolution_engine.php', 'q=getSequences', processResponse); 
 
 function processResponse(data){
 	var loop = jQuery.parseJSON(data);
 	var s = 0;
 	var i = 0; 
-	while(s != -1){
-		window.setTimeout(updateCakeScreen1(data.sequences.));
-	}
-}
 
+	startAnimation(sequence.frame, callout.message);
+}
+//sequence.frame[i]
 function updateCakeScreen1(photo){
 	$('#cakescreen1').attr('src', photo);
+	global_photo_counter++; 
+	if(global_photo_counter > 5){global_photo_counter = 0;}
+}
+
+function updateMessage(content){
+	$('#callouttext1').text(content);
+}
+
+function startAnimation(photos, messages){
+	var s = 0; 
+	var i = 0; 
+	
+	window.setInterval(updateCakeScreen1(sequence.frame[global_photo_counter]) ,1000);
+	
 }
 
  
