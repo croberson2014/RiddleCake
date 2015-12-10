@@ -3,11 +3,10 @@
 <title>
 RiddleCake
 </title>
-<style> 
-
-</style> 
+<link rel='stylesheet' href='style/default.css'>
 <script src='lib/jquery-1.11.3.js'></script>
 <script src='lib/ajax_functions.js'></script> 
+<script src='lib/mycake.js'></script>
 </head>
 <body> 
 <script type='text/javascript'></script>
