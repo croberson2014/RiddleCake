@@ -4,40 +4,7 @@
 RiddleCake
 </title>
 <style> 
-body{
-	font-family : 'AR HERMANN';
-}
-#pagetitle{
-position: absolute;
-width: 400px; 
-margin-left: 100px;
-	font-size : 50px; 
-	color: pink; 
-}
-#cakescreen1{
-	width: 200px; 
-	height: 200px; 
-	position : absolute; 
-	left: 500px; 
-	top : 350px; 
-}
-#calloutscreen1{
-	width: 500px; 
-	height: 300px; 
-	position : absolute; 
-	left: 600px; 
-	top : 60px; 
-	z-index: 0; 
-}
-#callouttext1{
-	position : absolute; 
-	width: 400px; 
-	height: 200px; 
-	left: 665px; 
-	top : 150px; 
-	z-index: 1; 
-	color : white;
-}
+
 </style> 
 <script src='lib/jquery-1.11.3.js'></script>
 <script src='lib/ajax_functions.js'></script> 
