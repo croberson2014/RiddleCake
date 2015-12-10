@@ -46,55 +46,30 @@ margin-left: 100px;
 <script type='text/javascript'></script>
 <h1 id='pagetitle'>Riddle Cake</h1>
 
+<div id='center_panel' class='panel'>
 
-<?php   
-//include('system/ncs.php');
-//get the current context from config.php, update the session variable
-session_start(); 
+</div>
 
-//each context has a function and parameters that have to be met before it reverts to the default
+<div id='bottom_panel' class='panel'>
+	<img alt='Settings icon here.'></img>
+	<div id='menu'>
+		<ul>
+			<li><h2></h2></li>
+		</ul>
+	</div>
+</div>
 
-echo "<div id='cakecontainer1' class='cakecontainer'>"; 
-echo "<img id='calloutscreen1' class='calloutscreen' src='image/comm/callout.png'></img>"; 
-echo "<p id ='callouttext1' class='callouttext'></p>"; 
-echo "<img id='cakescreen1' class='cakescreen' src='image/cake/designcake.png'></img>
-<div>";
-
-?>
-<div id='menu'><ul><h2></h2></ul></div>
 <script type='text/javascript'>
-var cakescreen1_counter = 0; var calloutscreen1_counter = 0; var callouttext1_counter = 0; 
-$.post('system/engine/resolution_engine.php', 'q=getSequences', processResponse); 
+var num_screens = 1; var num_callouts = 1; var display[]; var syncStep; 
+var cakeScreenCounter[]; var calloutScreenCounter[]; var calloutTextCounter[]; 
+$.post('system/config.php', 'q=getContext');
 
-function processResponse(data){
+function processContext(data){
 	//alert(data);
 	var process = jQuery.parseJSON(data);
-	//alert(process);
-	//alert(process.sequence[1]);
-	//alert(process.message[2]);
-	//$('#cakescreen1').attr('src', process.sequence[4]);
-	setInterval(updateCake, 100, 1, process.sequence, process.message); 
-}
-
-function updateCake(screen, frames, callouts){
-	if(screen == 1){
-	$('#cakescreen1').attr('src', frames[cakescreen1_counter]); 
-	cakescreen1_counter++; 
-	if(calloutscreen1_counter == 1){
-		$('#callouttext1').html('<b>'+callouts[callouttext1_counter]+'</b>'); 
-	}
-	callouttext1_counter++; 
-	calloutscreen1_counter++; 
-	if(cakescreen1_counter > 4){
-		cakescreen1_counter = 0; 
-		}
-	if(calloutscreen1_counter > 100){
-		calloutscreen1_counter = 0; 
-		}
-	}
-	if(callouttext1_counter > 3){
-		callouttext1_counter = 0; 
-	}
+	
+	setInterval(demoCake, 100, 1, process.sequence, process.message); 
+	//for each screen, process the slides for that screen, wait to be synced, update the next round
 }
  /*
  $.post('automate/product_functions.php', 'q=listCategories&r=1', processResponse); 
