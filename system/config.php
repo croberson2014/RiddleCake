@@ -1,6 +1,6 @@
 <?php 
   include 'uiconfig.php';
-  public class Configuration{
+  
   /*    
   version : 1.0 
   description : This class will allow manipulation of configuration content via an OO class. The current plan is 
@@ -13,10 +13,26 @@
   Dynamic configurations are included, such as the current display pattern (which is also stored in the session). Requests will be 
   accepted by this class for certain information otherwise unavailable to javascript, but not including animations, speech, et
   */
+@session_start(); 
+@$q = htmlspecialchars(strip_tags($_POST['q'])); 
   
- 
+  switch($q){
+  case 'getContext'  : getContext(); break; 
+  case 'updateContext' : updateContext($r, $s, $t); 
+  
+  }
+  
+  function getContext(){
     
- 
-  
+    if($_SESSION['username'] == null){
+      $_SESSION['mode'] == 'GEN';
+    }
+    
+    if(!($_SESSION['username'] == null)){
+      //get the user's progress and mode 
+      //get the uiconfig associated with the mode 
+      // if these don't exist return 'INTRO'
+    }
+    
   }
 ?>
