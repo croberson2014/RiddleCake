@@ -25,26 +25,12 @@ RiddleCake
 		</ul>
 	</div>
 </div>
-
+<?php @session_start(); ?> 
 <script type='text/javascript'>
 var num_screens = 1; var num_callouts = 1; var display[]; var syncStep; 
 var cakeScreenCounter[]; var calloutScreenCounter[]; var calloutTextCounter[]; 
 $.post('system/config.php', 'q=getContext');
 
-function processContext(data){
-	//alert(data);
-	var process = jQuery.parseJSON(data);
-	
-	setInterval(demoCake, 100, 1, process.sequence, process.message); 
-	//for each screen, process the slides for that screen, wait to be synced, update the next round
-}
- /*
- $.post('automate/product_functions.php', 'q=listCategories&r=1', processResponse); 
- processRsponse(); 
- var process = jQuery.parseJSON(data);
- process.access.
- 
- */
 </script>
 </body> 
 </html> 
