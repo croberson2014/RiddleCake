@@ -17,5 +17,11 @@ Iteration 1 Goals
 
 
 Iteration 2 Goals
-  Web services for coordination with studyblue.com
+  Brainstorm
+  
+Iteration 3 Goals 
+  Introductory interview 
+  Login
+  Progress 
+  Basic sentiments
   
